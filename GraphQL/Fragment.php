@@ -26,7 +26,7 @@ final class Fragment
      *
      * @return Fragment
      */
-    public static function create(string $name, string $type, array $fields = []): Fragment
+    public static function create($name, $type, array $fields = [])
     {
         return new self($name, $type, $fields);
     }
@@ -36,7 +36,7 @@ final class Fragment
      *
      * @return Fragment
      */
-    public function fields(array $fields = []): Fragment
+    public function fields(array $fields = [])
     {
         foreach ($fields as $fieldAlias => $field) {
             if (\is_string($field)) {
@@ -71,7 +71,7 @@ final class Fragment
      *
      * @return string
      */
-    private static function printFields(array $value): string
+    private static function printFields(array $value)
     {
         $fields = [];
 
@@ -103,7 +103,7 @@ final class Fragment
      * @param string $type
      * @param array $fields
      */
-    private function __construct(string $name, string $type, array $fields)
+    private function __construct($name, $type, array $fields)
     {
         $this->name = $name;
 

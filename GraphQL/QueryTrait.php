@@ -68,7 +68,7 @@ trait QueryTrait
      *
      * @return self
      */
-    public function operationName(string $operationName)
+    public function operationName($operationName)
     {
         $this->operationName = $operationName;
 
@@ -81,7 +81,7 @@ trait QueryTrait
      *
      * @return string
      */
-    private static function printQuery($operationName, $variables): string
+    private static function printQuery($operationName, $variables)
     {
         if (null === $operationName) {
             if (\count($variables)) {
@@ -113,7 +113,7 @@ trait QueryTrait
      *
      * @return string
      */
-    private static function printVariables(array $value): string
+    private static function printVariables(array $value)
     {
         if (!\count($value)) {
             return '';
@@ -149,7 +149,7 @@ trait QueryTrait
      *
      * @return string
      */
-    private static function printArgs(array $value): string
+    private static function printArgs(array $value)
     {
         if (!count($value)) {
             return '';
@@ -203,7 +203,7 @@ trait QueryTrait
      *
      * @return self
      */
-    public function removeFields(array $fields = []): Query
+    public function removeFields(array $fields = [])
     {
         foreach ($fields as $field) {
             unset($this->fields[$field]);
@@ -219,7 +219,7 @@ trait QueryTrait
      *
      * @return string
      */
-    private static function printFields(array $value, array $skipIf = [], array $includeIf = []): string
+    private static function printFields(array $value, array $skipIf = [], array $includeIf = [])
     {
         $fields = [];
 
@@ -350,7 +350,7 @@ trait QueryTrait
         $this->fields($fields);
     }
 
-    private static function printType($value): string
+    private static function printType($value)
     {
         if (\is_string($value)) {
             return $value;
